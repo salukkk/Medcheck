@@ -29,10 +29,42 @@ $username=$userfetch["pname"];
 
 <link rel="stylesheet" href="../css/index.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.accessibility-controls{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.accessibility-controls button{
+    background: #16a085;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    margin: 3px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accessibility-controls button:hover{
+    background: #138d75;
+}
+</style>
+
 </head>
 
 <body>
 
+<!-- Accessibility Buttons -->
+<div class="accessibility-controls">
+    <button onclick="changeFontSize(1)">A+</button>
+    <button onclick="changeFontSize(-1)">A-</button>
+    <button onclick="resetFontSize()">Reset</button>
+</div>
+    
 <!-- TOPBAR -->
 <div class="topbar">
     <div class="logo">
@@ -202,6 +234,23 @@ if($_GET){
     }
 }
 ?>
+<script>
+let currentSize = 16;
+
+function changeFontSize(amount){
+    currentSize += amount;
+
+    if(currentSize < 12) currentSize = 12;
+    if(currentSize > 30) currentSize = 30;
+
+    document.body.style.fontSize = currentSize + "px";
+}
+
+function resetFontSize(){
+    currentSize = 16;
+    document.body.style.fontSize = "16px";
+}
+</script>
 
 </body>
 </html>
