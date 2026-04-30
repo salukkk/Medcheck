@@ -33,6 +33,12 @@ $username=$userfetch["pname"];
 
 <body>
 
+<!-- Accessibility Buttons -->
+<div class="accessibility-controls">
+    <button onclick="changeFontSize(1)">A+</button>
+    <button onclick="changeFontSize(-1)">A-</button>
+    <button onclick="resetFontSize()">Reset</button>
+</div>
 <!-- TOPBAR -->
 <div class="topbar">
     <div class="logo">
